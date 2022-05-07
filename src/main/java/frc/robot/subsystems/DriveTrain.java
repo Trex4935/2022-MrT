@@ -38,6 +38,13 @@ public class DriveTrain extends SubsystemBase {
 
   }
 
+  public void stopMotors() {
+    leftTop.stopMotor();
+    leftBottom.stopMotor();
+    rightTop.stopMotor();
+    rightBottom.stopMotor();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
