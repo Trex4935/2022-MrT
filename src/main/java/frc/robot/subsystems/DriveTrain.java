@@ -23,6 +23,9 @@ public class DriveTrain extends SubsystemBase {
 
   MotorControllerGroup leftMotorGroup;
   MotorControllerGroup rightMotorGroup;
+  
+  int leftInvert;
+  int rightInvert;
 
   DifferentialDrive drive;
 
@@ -40,13 +43,18 @@ public class DriveTrain extends SubsystemBase {
     leftMotorGroup = new MotorControllerGroup(leftTop, leftBottomleft, leftBottomright);
     rightMotorGroup = new MotorControllerGroup(rightTop, rightBottomleft, rightBottomright);
 
+    // invert
+    leftInvert = Constants.leftInvert;
+    rightInvert = Constants.rightInvert;
+
     // arcade drive
     drive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
+    
 
   }
 
   public void driveWithController(XboxController controller) {
-    drive.tankDrive(controller.getRawAxis(Constants.leftAxis), controller.getRawAxis(Constants.rightAxis));
+    drive.tankDrive(((controller.getRawAxis(Constants.leftAxis))*leftInvert),((controller.getRawAxis(Constants.rightAxis))*rightInvert));
   }
 
   public void stopMotors() {

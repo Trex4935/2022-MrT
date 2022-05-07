@@ -36,4 +36,9 @@ public final class Constants {
     // xbox controller
     public static final int xboxID = 0;
 
+    //Invert drive train
+
+    public static final int leftInvert = -1;
+    public static final int rightInvert = -1;
+
 }
