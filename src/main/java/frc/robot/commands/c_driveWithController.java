@@ -26,7 +26,7 @@ public class c_driveWithController extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -39,7 +39,7 @@ public class c_driveWithController extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    drive.stopAllDriveMotors();
+    drive.stopMotors();
 
   }
 
