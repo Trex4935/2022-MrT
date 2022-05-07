@@ -27,4 +27,8 @@ public final class Constants {
     public static final int rightBottomLeftCanID = 14;
     public static final int rightBottomRightCanID = 15;
 
+    // controller
+    public static final int leftAxis = 1;
+    public static final int rightAxis = 5;
+
 }

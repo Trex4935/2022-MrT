@@ -6,6 +6,8 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -22,6 +24,8 @@ public class DriveTrain extends SubsystemBase {
   MotorControllerGroup leftMotorGroup;
   MotorControllerGroup rightMotorGroup;
 
+  DifferentialDrive drive;
+
   /** Creates a new DriveTrain. */
   public DriveTrain() {
     // motor canbus
@@ -29,17 +33,20 @@ public class DriveTrain extends SubsystemBase {
     leftBottomleft = new WPI_TalonSRX(Constants.leftBottomLeftCanID);
     leftBottomright = new WPI_TalonSRX(Constants.leftBottomRightCanID);
     rightTop = new WPI_TalonSRX(Constants.rightTopCanID);
-    rightBottomleft= new WPI_TalonSRX(Constants.rightBottomLeftCanID);
+    rightBottomleft = new WPI_TalonSRX(Constants.rightBottomLeftCanID);
     rightBottomright = new WPI_TalonSRX(Constants.rightBottomRightCanID);
 
     // motor group
     leftMotorGroup = new MotorControllerGroup(leftTop, leftBottomleft, leftBottomright);
     rightMotorGroup = new MotorControllerGroup(rightTop, rightBottomleft, rightBottomright);
 
+    // arcade drive
+    drive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
+
   }
 
-  public void driveWithController() {
-
+  public void driveWithController(XboxController controller) {
+    drive.tankDrive(controller.getRawAxis(Constants.leftAxis), controller.getRawAxis(Constants.rightAxis));
   }
 
   public void stopMotors() {
