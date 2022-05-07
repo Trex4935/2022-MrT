@@ -13,9 +13,11 @@ import frc.robot.Constants;
 public class DriveTrain extends SubsystemBase {
 
   WPI_TalonSRX leftTop;
-  WPI_TalonSRX leftBottom;
+  WPI_TalonSRX leftBottomleft;
+  WPI_TalonSRX leftBottomright;
   WPI_TalonSRX rightTop;
-  WPI_TalonSRX rightBottom;
+  WPI_TalonSRX rightBottomleft;
+  WPI_TalonSRX rightBottomright;
 
   MotorControllerGroup leftMotorGroup;
   MotorControllerGroup rightMotorGroup;
@@ -23,14 +25,16 @@ public class DriveTrain extends SubsystemBase {
   /** Creates a new DriveTrain. */
   public DriveTrain() {
     // motor canbus
-    leftTop = new WPI_TalonSRX(Constants.leftTop);
-    leftBottom = new WPI_TalonSRX(Constants.leftBottom);
-    rightTop = new WPI_TalonSRX(Constants.rightTop);
-    rightBottom = new WPI_TalonSRX(Constants.rightBottom);
+    leftTop = new WPI_TalonSRX(Constants.leftTopCanID);
+    leftBottomleft = new WPI_TalonSRX(Constants.leftBottomLeftCanID);
+    leftBottomright = new WPI_TalonSRX(Constants.leftBottomRightCanID);
+    rightTop = new WPI_TalonSRX(Constants.rightTopCanID);
+    rightBottomleft= new WPI_TalonSRX(Constants.rightBottomLeftCanID);
+    rightBottomright = new WPI_TalonSRX(Constants.rightBottomRightCanID);
 
     // motor group
-    leftMotorGroup = new MotorControllerGroup(leftTop, leftBottom);
-    rightMotorGroup = new MotorControllerGroup(rightTop, rightBottom);
+    leftMotorGroup = new MotorControllerGroup(leftTop, leftBottomleft, leftBottomright);
+    rightMotorGroup = new MotorControllerGroup(rightTop, rightBottomleft, rightBottomright);
 
   }
 
