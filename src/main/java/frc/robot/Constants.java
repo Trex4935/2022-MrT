@@ -22,10 +22,10 @@ public final class Constants {
 
     // drive train
 
-    public static final int leftTopCanID = 10;
+    public static final int leftTopCanID = 1;
     public static final int leftBottomLeftCanID = 11;
     public static final int leftBottomRightCanID = 12;
-    public static final int rightTopCanID = 13;
+    public static final int rightTopCanID = 2;
     public static final int rightBottomLeftCanID = 14;
     public static final int rightBottomRightCanID = 15;
 
@@ -36,10 +36,10 @@ public final class Constants {
     // xbox controller
     public static final int xboxID = 0;
 
-    //Invert drive train
+    // Invert drive train
 
     public static final int leftInvert = -1;
     public static final int rightInvert = -1;
 
-    public static final double motorSpeedMultiplier = 0.5;
-} 
+    public static final double motorSpeedMultiplier = 0.75;
+}
