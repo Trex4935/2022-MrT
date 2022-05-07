@@ -44,9 +44,11 @@ public class DriveTrain extends SubsystemBase {
 
   public void stopMotors() {
     leftTop.stopMotor();
-    leftBottom.stopMotor();
+    leftBottomleft.stopMotor();
+    leftBottomright.stopMotor();
     rightTop.stopMotor();
-    rightBottom.stopMotor();
+    rightBottomleft.stopMotor();
+    rightBottomright.stopMotor();
   }
 
   @Override
