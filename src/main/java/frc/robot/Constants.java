@@ -20,9 +20,11 @@ public final class Constants {
 
     // drive train
 
-    public static final int leftTop = 10;
-    public static final int leftBottom = 11;
-    public static final int rightTop = 12;
-    public static final int rightBottom = 13;
+    public static final int leftTopCanID = 10;
+    public static final int leftBottomLeftCanID = 11;
+    public static final int leftBottomRightCanID = 12;
+    public static final int rightTopCanID = 13;
+    public static final int rightBottomLeftCanID = 14;
+    public static final int rightBottomRightCanID = 15;
 
 }
