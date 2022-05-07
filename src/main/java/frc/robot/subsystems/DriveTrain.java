@@ -34,6 +34,10 @@ public class DriveTrain extends SubsystemBase {
 
   }
 
+  public void driveWithController() {
+
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
