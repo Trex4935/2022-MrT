@@ -41,4 +41,5 @@ public final class Constants {
     public static final int leftInvert = -1;
     public static final int rightInvert = -1;
 
-}
+    public static final double motorSpeedMultiplier = 0.5;
+} 
