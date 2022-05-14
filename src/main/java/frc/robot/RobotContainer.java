@@ -11,7 +11,11 @@ import frc.robot.commands.c_driveWithController;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants;
+import frc.robot.commands.c_startLauncher;
+import frc.robot.subsystems.Launcher;
+import frc.robot.commands.c_reverseLauncher;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -27,6 +31,11 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveTrain driveTrain;
   private final c_driveWithController driveWithController;
+  private final c_startLauncher runLauncher;
+  private final c_reverseLauncher reverseLauncher;
+  private final Launcher launch;
+
+  private JoystickButton button_a, button_b, button_x, button_y;
 
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
@@ -40,8 +49,11 @@ public class RobotContainer {
     controller = new XboxController(Constants.xboxID);
     // subsystems
     driveTrain = new DriveTrain();
+    launch = new Launcher();
     // commands
     driveWithController = new c_driveWithController(driveTrain, controller);
+    runLauncher = new c_startLauncher(launch);
+    reverseLauncher = new c_reverseLauncher(launch);
 
     driveTrain.setDefaultCommand(driveWithController);
 
@@ -58,6 +70,12 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    button_a = new JoystickButton(controller, XboxController.Button.kA.value);
+    button_a.toggleWhenPressed(runLauncher);
+
+    button_b = new JoystickButton(controller, XboxController.Button.kB.value);
+    button_b.toggleWhenPressed(reverseLauncher);
+
   }
 
   /**
