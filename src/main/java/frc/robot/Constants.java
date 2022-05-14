@@ -42,4 +42,9 @@ public final class Constants {
     public static final int rightInvert = -1;
 
     public static final double motorSpeedMultiplier = 0.75;
+	
+    // launcher motors
+    public static final int motorTop = 3;
+    public static final int motorBottom = 4;
+    public static final double launcherSpeed = 0.725;
 }
