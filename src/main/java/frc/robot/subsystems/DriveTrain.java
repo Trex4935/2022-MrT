@@ -5,9 +5,11 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.sensors.PigeonIMU;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -31,6 +33,8 @@ public class DriveTrain extends SubsystemBase {
 
   DifferentialDrive drive;
 
+  PigeonIMU gyro;
+
   /** Creates a new DriveTrain. */
   public DriveTrain() {
     // motor canbus
@@ -52,15 +56,24 @@ public class DriveTrain extends SubsystemBase {
     // motor speed multiplier
     motorSpeedMultiplier = Constants.motorSpeedMultiplier;
 
+    // gyro
+    gyro = new PigeonIMU(Constants.gyroID);
+
     // arcade drive
     drive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
 
   }
 
   public void driveWithController(XboxController controller) {
+    double[] YPR = new double[3];
     drive.tankDrive((((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier),
         (((controller.getRawAxis(Constants.rightAxis)) * rightInvert) * motorSpeedMultiplier));
     System.out.println((((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier));
+
+    gyro.getYawPitchRoll(YPR);
+    System.out.println("Gyro Yaw is " + YPR[0]);
+    System.out.println("Gyro Yaw is " + YPR[1]);
+    System.out.println("Gyro Yaw is " + YPR[2]);
   }
 
   public void stopMotors() {
