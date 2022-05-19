@@ -5,12 +5,13 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import com.ctre.phoenix.sensors.PigeonIMU;
+import com.ctre.phoenix.sensors.WPI_PigeonIMU;
 
 public class DriveTrain extends SubsystemBase {
 
@@ -31,7 +32,11 @@ public class DriveTrain extends SubsystemBase {
 
   DifferentialDrive drive;
 
+  //gyro
+  WPI_PigeonIMU gyro;
+
   /** Creates a new DriveTrain. */
+ 
   public DriveTrain() {
     // motor canbus
     leftTop = new WPI_TalonSRX(Constants.leftTopCanID);
@@ -55,6 +60,9 @@ public class DriveTrain extends SubsystemBase {
     // arcade drive
     drive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
 
+    //gyro
+    gyro = new WPI_PigeonIMU(Constants.gyroID);
+
   }
 
   public void driveWithController(XboxController controller) {
@@ -72,8 +80,4 @@ public class DriveTrain extends SubsystemBase {
     rightBottomright.stopMotor();
   }
 
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
-  }
 }

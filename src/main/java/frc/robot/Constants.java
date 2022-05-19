@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
+import com.ctre.phoenix.sensors.PigeonIMU;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
@@ -47,4 +48,7 @@ public final class Constants {
     public static final int motorTop = 3;
     public static final int motorBottom = 4;
     public static final double launcherSpeed = 0.725;
+
+    //gyro
+    public static final int gyroID = 1 ;
 }
