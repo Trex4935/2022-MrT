@@ -51,7 +51,7 @@ public final class Constants {
     public static final int motorBottom = 4;
     public static final double launcherSpeed = 0.725;  
     // gyro
-    public static final int gyroID = 2;\
+    public static final int gyroID = 2;
     // smacna sensors
     public static final int smacnaTopDIO = 3;
     public static final int smacnaBottomDIO = 4;
