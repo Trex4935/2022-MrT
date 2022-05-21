@@ -4,6 +4,9 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.sensors.PigeonIMU;
+
 import edu.wpi.first.wpilibj.XboxController;
 
 /**
@@ -46,8 +49,9 @@ public final class Constants {
     // launcher motors
     public static final int motorTop = 3;
     public static final int motorBottom = 4;
-    public static final double launcherSpeed = 0.725;
-
+    public static final double launcherSpeed = 0.725;  
+    // gyro
+    public static final int gyroID = 2;\
     // smacna sensors
     public static final int smacnaTopDIO = 3;
     public static final int smacnaBottomDIO = 4;
