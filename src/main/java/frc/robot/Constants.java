@@ -39,7 +39,9 @@ public final class Constants {
     public static final int leftInvert = -1;
     public static final int rightInvert = -1;
 
-    public static final double motorSpeedMultiplier = 0.75;
+    public static final double motorSpeedMultiplier = 1;
+	public static final double motorSpeedMultiplierLeft = 0.8;
+    public static final double motorSpeedMultiplierRight = 0.9;
 
     // launcher motors
     public static final int motorTop = 3;
