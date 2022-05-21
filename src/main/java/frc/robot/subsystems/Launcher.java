@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -14,6 +15,8 @@ public class Launcher extends SubsystemBase {
 
   WPI_TalonSRX motorTop;
   WPI_TalonSRX motorBottom;
+  DigitalInput smacnaTop;
+  DigitalInput smacnaBottom;
 
   MotorControllerGroup launcherMotorGroup;
 
@@ -23,6 +26,8 @@ public class Launcher extends SubsystemBase {
     motorBottom = new WPI_TalonSRX(Constants.motorBottom);
 
     launcherMotorGroup = new MotorControllerGroup(motorTop, motorBottom);
+    smacnaTop = new DigitalInput(Constants.smacnaTopDIO);
+    smacnaBottom = new DigitalInput(Constants.smacnaBottomDIO);
 
   }
 
@@ -30,9 +35,19 @@ public class Launcher extends SubsystemBase {
     launcherMotorGroup.set(speed);
   }
 
-  public void stopLauncher() { 
+  public void stopLauncher() {
     motorTop.stopMotor();
     motorBottom.stopMotor();
+  }
+
+  public boolean getTopSmacna() {
+
+    return smacnaTop.get();
+
+  }
+
+  public boolean getBottomSmacna() {
+    return smacnaBottom.get();
   }
 
   @Override
