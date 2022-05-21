@@ -62,6 +62,9 @@ public class DriveTrain extends SubsystemBase {
         (((controller.getRawAxis(Constants.rightAxis)) * rightInvert) * motorSpeedMultiplier));
     System.out.println((((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier));
   }
+  public void driveStraight(Double speed){
+    drive.tankDrive(speed, speed);
+  }
 
   public void stopMotors() {
     leftTop.stopMotor();
