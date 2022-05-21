@@ -40,6 +40,7 @@ public class DriveTrain extends SubsystemBase {
     // motor group
     leftMotorGroup = new MotorControllerGroup(leftTop, leftBottom);
     rightMotorGroup = new MotorControllerGroup(rightTop, rightBottom);
+    rightMotorGroup.setInverted(true);
 
     // invert
     leftInvert = Constants.leftInvert;
@@ -55,8 +56,8 @@ public class DriveTrain extends SubsystemBase {
 
   public void driveWithController(XboxController controller) {
     drive.tankDrive((((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier),
-        (((controller.getRawAxis(Constants.rightAxis)) * rightInvert) * motorSpeedMultiplier));
-    System.out.println((((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier));
+        (((controller.getRawAxis(Constants.rightAxis)) * rightInvert) * motorSpeedMultiplier*Constants.motorSpeedMultiplierRight));
+    System.out.println((((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier*Constants.motorSpeedMultiplierLeft));
   }
   public void driveStraight(Double speed){
     drive.tankDrive(speed, speed);
