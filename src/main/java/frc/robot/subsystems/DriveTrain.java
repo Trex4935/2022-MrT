@@ -6,7 +6,10 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.sensors.PigeonIMU;
+import com.ctre.phoenix.sensors.WPI_PigeonIMU;
+import com.kauailabs.navx.frc.AHRS;
 
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
@@ -31,7 +34,10 @@ public class DriveTrain extends SubsystemBase {
 
   DifferentialDrive drive;
 
-  PigeonIMU gyro;
+  // PigeonIMU gyro;
+  WPI_PigeonIMU gyro;
+  double[] YPR;
+  public static AHRS gyro2;
 
   /** Creates a new DriveTrain. */
   public DriveTrain() {
@@ -54,7 +60,12 @@ public class DriveTrain extends SubsystemBase {
     motorSpeedMultiplier = Constants.motorSpeedMultiplier;
 
     // gyro
-    gyro = new PigeonIMU(Constants.gyroID);
+    // gyro = new PigeonIMU(Constants.gyroID);
+    gyro = new WPI_PigeonIMU(Constants.gyroID);
+    gyro.reset();
+    YPR = new double[3];
+    gyro2 = new AHRS(SPI.Port.kMXP);
+    gyro2.reset();
 
     // arcade drive
     drive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
@@ -62,18 +73,23 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void driveWithController(XboxController controller) {
-    double[] YPR = new double[3];
-    drive.tankDrive((((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier*Constants.motorSpeedMultiplierLeft),
-        (((controller.getRawAxis(Constants.rightAxis)) * rightInvert) * motorSpeedMultiplier*Constants.motorSpeedMultiplierRight));
+    drive.tankDrive(
+        (((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier
+            * Constants.motorSpeedMultiplierLeft),
+        (((controller.getRawAxis(Constants.rightAxis)) * rightInvert) * motorSpeedMultiplier
+            * Constants.motorSpeedMultiplierRight));
     System.out.println((((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier));
-    
-    gyro.getYawPitchRoll(YPR);
-    System.out.println("Gyro Yaw is " + YPR[0]);
-    System.out.println("Gyro Yaw is " + YPR[1]);
-    System.out.println("Gyro Yaw is " + YPR[2]);
+
+    // gyro.getYawPitchRoll(YPR);
+    // System.out.println("Gyro Yaw is " + YPR[0]);
+    // System.out.println("Gyro Yaw is " + YPR[1]);
+    // System.out.println("Gyro Yaw is " + YPR[2]);
+    System.out.println("Gyro Yaw is " + gyro.getYaw());
+    System.out.println("Gyro Yaw is " + gyro.getState());
+    System.out.println("Gyro Yaw is " + gyro2.getAngle());
   }
-  
-  public void driveStraight(Double speed){
+
+  public void driveStraight(Double speed) {
     drive.tankDrive(speed, speed);
   }
 
