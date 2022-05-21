@@ -23,11 +23,9 @@ public final class Constants {
     // drive train
 
     public static final int leftTopCanID = 1;
-    public static final int leftBottomLeftCanID = 11;
-    public static final int leftBottomRightCanID = 12;
+    public static final int leftBottomCanID = 11;
     public static final int rightTopCanID = 2;
-    public static final int rightBottomLeftCanID = 14;
-    public static final int rightBottomRightCanID = 15;
+    public static final int rightBottomCanID = 14;
 
     // controller
     public static final int leftAxis = 1;

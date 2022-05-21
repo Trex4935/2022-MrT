@@ -15,11 +15,9 @@ import frc.robot.Constants;
 public class DriveTrain extends SubsystemBase {
 
   WPI_TalonSRX leftTop;
-  WPI_TalonSRX leftBottomleft;
-  WPI_TalonSRX leftBottomright;
+  WPI_TalonSRX leftBottom;
   WPI_TalonSRX rightTop;
-  WPI_TalonSRX rightBottomleft;
-  WPI_TalonSRX rightBottomright;
+  WPI_TalonSRX rightBottom;
 
   MotorControllerGroup leftMotorGroup;
   MotorControllerGroup rightMotorGroup;
@@ -35,15 +33,13 @@ public class DriveTrain extends SubsystemBase {
   public DriveTrain() {
     // motor canbus
     leftTop = new WPI_TalonSRX(Constants.leftTopCanID);
-    leftBottomleft = new WPI_TalonSRX(Constants.leftBottomLeftCanID);
-    leftBottomright = new WPI_TalonSRX(Constants.leftBottomRightCanID);
+    leftBottom = new WPI_TalonSRX(Constants.leftBottomCanID);
     rightTop = new WPI_TalonSRX(Constants.rightTopCanID);
-    rightBottomleft = new WPI_TalonSRX(Constants.rightBottomLeftCanID);
-    rightBottomright = new WPI_TalonSRX(Constants.rightBottomRightCanID);
+    rightBottom = new WPI_TalonSRX(Constants.rightBottomCanID);
 
     // motor group
-    leftMotorGroup = new MotorControllerGroup(leftTop, leftBottomleft, leftBottomright);
-    rightMotorGroup = new MotorControllerGroup(rightTop, rightBottomleft, rightBottomright);
+    leftMotorGroup = new MotorControllerGroup(leftTop, leftBottom);
+    rightMotorGroup = new MotorControllerGroup(rightTop, rightBottom);
 
     // invert
     leftInvert = Constants.leftInvert;
@@ -68,11 +64,9 @@ public class DriveTrain extends SubsystemBase {
 
   public void stopMotors() {
     leftTop.stopMotor();
-    leftBottomleft.stopMotor();
-    leftBottomright.stopMotor();
+    leftBottom.stopMotor();
     rightTop.stopMotor();
-    rightBottomleft.stopMotor();
-    rightBottomright.stopMotor();
+    rightBottom.stopMotor();
   }
 
   @Override
