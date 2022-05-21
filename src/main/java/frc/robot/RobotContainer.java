@@ -7,6 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.c_autoBackUp;
 import frc.robot.commands.c_driveWithController;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -34,6 +35,7 @@ public class RobotContainer {
   private final c_startLauncher runLauncher;
   private final c_reverseLauncher reverseLauncher;
   private final Launcher launch;
+  private final c_autoBackUp autoBackUp;
 
   private JoystickButton button_a, button_b, button_x, button_y;
 
@@ -52,6 +54,7 @@ public class RobotContainer {
     launch = new Launcher();
     // commands
     driveWithController = new c_driveWithController(driveTrain, controller);
+    autoBackUp = new c_autoBackUp(driveTrain);
     runLauncher = new c_startLauncher(launch);
     reverseLauncher = new c_reverseLauncher(launch);
 
@@ -85,6 +88,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return autoBackUp;
   }
 }
