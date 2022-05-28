@@ -26,9 +26,9 @@ public final class Constants {
     // drive train
 
     public static final int leftTopCanID = 1;// 1;
-    public static final int leftBottomCanID = 11;// 2;
-    public static final int rightTopCanID = 2;// 5;
-    public static final int rightBottomCanID = 14;// 6;
+    public static final int leftBottomCanID = 2;// 2;11;
+    public static final int rightTopCanID = 5;// 5;2
+    public static final int rightBottomCanID = 6;// 6;
 
     // controller
     public static final int leftAxis = 1;
@@ -43,13 +43,13 @@ public final class Constants {
     public static final int rightInvert = -1;
 
     public static final double motorSpeedMultiplier = 1;
-    public static final double motorSpeedMultiplierLeft = 0.8;
-    public static final double motorSpeedMultiplierRight = 0.9;
+    public static final double motorSpeedMultiplierLeft = 1;// 0.8;
+    public static final double motorSpeedMultiplierRight = 1; // 0.9;
 
     // launcher motors
-    public static final int motorTop = 3;
-    public static final int motorBottom = 4;
-    public static final double launcherSpeed = 0.725;
+    public static final int motorTop = 3;// 3;Left
+    public static final int motorBottom = 4;// 4 Right
+    public static final double launcherSpeed = 0.5;// 0.725;
     // gyro
     public static final int gyroID = 2;
     // smacna sensors
