@@ -54,5 +54,5 @@ public final class Constants {
     public static final int gyroID = 2;
     // smacna sensors
     public static final int smacnaTopDIO = 3;
-    public static final int smacnaBottomDIO = 4;
+    public static final int smacnaBottomDIO = 6;
 }
