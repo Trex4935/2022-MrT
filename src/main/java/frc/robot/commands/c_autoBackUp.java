@@ -8,25 +8,27 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 
 public class c_autoBackUp extends CommandBase {
-  
+
   private final DriveTrain drive;
+
   /** Creates a new c_autoBackUp. */
   public c_autoBackUp(DriveTrain dt) {
     // Use addRequirements() here to declare subsystem dependencies.
     drive = dt;
-    
+
     addRequirements(drive);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
 
-  drive.driveStraight(-.5);
+    drive.driveStraight(.5);
   }
 
   // Called once the command ends or is interrupted.
