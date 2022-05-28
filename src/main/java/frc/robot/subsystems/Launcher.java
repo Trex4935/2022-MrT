@@ -25,14 +25,23 @@ public class Launcher extends SubsystemBase {
     motorTop = new WPI_TalonSRX(Constants.motorTop);
     motorBottom = new WPI_TalonSRX(Constants.motorBottom);
 
-    launcherMotorGroup = new MotorControllerGroup(motorTop, motorBottom);
+    // default setting
+    motorTop.configFactoryDefault();
+    motorBottom.configFactoryDefault();
+
+    // invert
+    motorTop.setInverted(true);
+    motorBottom.setInverted(false);
+
     smacnaTop = new DigitalInput(Constants.smacnaTopDIO);
     smacnaBottom = new DigitalInput(Constants.smacnaBottomDIO);
 
   }
 
   public void runLauncher(double speed) {
-    launcherMotorGroup.set(speed);
+    // launcherMotorGroup.set(speed);
+    motorTop.set(speed);
+    motorBottom.set(speed);
   }
 
   public void stopLauncher() {
