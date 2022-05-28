@@ -39,7 +39,7 @@ public class RobotContainer {
   private final c_autoBackUp autoBackUp;
   private final c_autoShootThenBackUp autoShootThenBackUp;
 
-  private JoystickButton button_a, button_b, button_x, button_y;
+  private JoystickButton button_a, button_b, button_x, button_y, bumper_r, bumper_l;
 
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
@@ -76,11 +76,11 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    button_a = new JoystickButton(controller, XboxController.Button.kA.value);
-    button_a.toggleWhenPressed(runLauncher);
+    bumper_r = new JoystickButton(controller, XboxController.Button.kRightBumper.value);
+    bumper_r.whenHeld(runLauncher);
 
-    button_b = new JoystickButton(controller, XboxController.Button.kB.value);
-    button_b.toggleWhenPressed(reverseLauncher);
+    bumper_l = new JoystickButton(controller, XboxController.Button.kLeftBumper.value);
+    bumper_l.whenHeld(reverseLauncher);
 
   }
 
