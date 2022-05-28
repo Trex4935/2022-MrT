@@ -17,6 +17,9 @@ public class Launcher extends SubsystemBase {
   WPI_TalonSRX motorBottom;
   DigitalInput smacnaTop;
   DigitalInput smacnaBottom;
+  int ballcount;
+  int i;
+  boolean ballDetect;
 
   MotorControllerGroup launcherMotorGroup;
 
@@ -33,8 +36,12 @@ public class Launcher extends SubsystemBase {
     motorTop.setInverted(true);
     motorBottom.setInverted(false);
 
+    // launcherMotorGroup = new MotorControllerGroup(motorTop, motorBottom);
     smacnaTop = new DigitalInput(Constants.smacnaTopDIO);
     smacnaBottom = new DigitalInput(Constants.smacnaBottomDIO);
+    ballcount = 0;
+    i = 0;
+    ballDetect = false;
 
   }
 
@@ -57,6 +64,33 @@ public class Launcher extends SubsystemBase {
 
   public boolean getBottomSmacna() {
     return smacnaBottom.get();
+  }
+
+  public void singulateball() {
+    // if (!ballDetect) {
+    // runLauncher(0.5);
+    // }
+    // // If i see bal run motors
+    // if (getBottomSmacna()) {
+    // ballDetect = true;
+    // i = 0;
+    // runLauncher(0.5);
+
+    // } else if { // if i dont see ball stop motor after 10 ticks than count.
+    // if (i == 10) {
+    // stopLauncher();
+    // ballcount = ballcount + 1;
+    // ballDetect = false;
+    // } else {
+    // i = i + 1;
+    // }
+
+    // }
+
+  }
+
+  public void countball() {
+
   }
 
   @Override
