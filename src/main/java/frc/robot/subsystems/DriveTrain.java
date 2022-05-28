@@ -47,14 +47,21 @@ public class DriveTrain extends SubsystemBase {
     rightTop = new WPI_TalonSRX(Constants.rightTopCanID);
     rightBottom = new WPI_TalonSRX(Constants.rightBottomCanID);
 
-    // motor group
-    leftMotorGroup = new MotorControllerGroup(leftTop, leftBottom);
-    rightMotorGroup = new MotorControllerGroup(rightTop, rightBottom);
-    rightMotorGroup.setInverted(true);
+    // Default
+
+    leftTop.configFactoryDefault();
+    leftBottom.configFactoryDefault();
+    rightBottom.configFactoryDefault();
+    rightTop.configFactoryDefault();
 
     // invert
     leftInvert = Constants.leftInvert;
     rightInvert = Constants.rightInvert;
+
+    // motor group
+    leftMotorGroup = new MotorControllerGroup(leftTop, leftBottom);
+    rightMotorGroup = new MotorControllerGroup(rightTop, rightBottom);
+    rightMotorGroup.setInverted(true);
 
     // motor speed multiplier
     motorSpeedMultiplier = Constants.motorSpeedMultiplier;
