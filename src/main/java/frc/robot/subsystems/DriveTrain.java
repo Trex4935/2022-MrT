@@ -65,6 +65,7 @@ public class DriveTrain extends SubsystemBase {
     gyro.reset();
     YPR = new double[3];
     gyro2 = new AHRS(SPI.Port.kMXP);
+    gyro2.calibrate();
     gyro2.reset();
 
     // arcade drive
@@ -86,7 +87,10 @@ public class DriveTrain extends SubsystemBase {
     // System.out.println("Gyro Yaw is " + YPR[2]);
     System.out.println("Gyro Yaw is " + gyro.getYaw());
     System.out.println("Gyro Yaw is " + gyro.getState());
-    System.out.println("Gyro Yaw is " + gyro2.getAngle());
+    System.out.println("Gyro Angle is " + gyro2.getAngle());
+    System.out.println("Gyro Yaw is " + gyro2.getYaw());
+    System.out.println("Gyro Roll is " + gyro2.getRoll());
+    System.out.println("Gyro Pitch is " + gyro2.getPitch());
   }
 
   public void driveStraight(Double speed) {
