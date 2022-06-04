@@ -10,13 +10,14 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.extensions.FlippedDIO;
 
 public class Launcher extends SubsystemBase {
 
   WPI_TalonSRX motorTop;
   WPI_TalonSRX motorBottom;
-  DigitalInput smacnaTop;
-  DigitalInput smacnaBottom;
+  FlippedDIO smacnaTop;
+  FlippedDIO smacnaBottom;
   int ballcount;
   int i;
   boolean ballDetect;
