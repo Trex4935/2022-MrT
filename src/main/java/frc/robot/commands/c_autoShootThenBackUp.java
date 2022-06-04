@@ -16,7 +16,7 @@ public class c_autoShootThenBackUp extends SequentialCommandGroup {
   public c_autoShootThenBackUp(Launcher launch, DriveTrain drive) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new c_startLauncher(launch).withTimeout(2),
+    addCommands(new c_runLauncher(launch).withTimeout(2),
         new c_autoBackUp(drive).withTimeout(5));
   }
 }

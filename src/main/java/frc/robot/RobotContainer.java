@@ -15,7 +15,7 @@ import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants;
-import frc.robot.commands.c_startLauncher;
+import frc.robot.commands.c_runLauncher;
 import frc.robot.subsystems.Launcher;
 import frc.robot.commands.c_reverseLauncher;
 
@@ -33,7 +33,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveTrain driveTrain;
   private final c_driveWithController driveWithController;
-  private final c_startLauncher runLauncher;
+  private final c_runLauncher runLauncher;
   private final c_reverseLauncher reverseLauncher;
   private final Launcher launch;
   private final c_autoBackUp autoBackUp;
@@ -57,7 +57,7 @@ public class RobotContainer {
     // commands
     driveWithController = new c_driveWithController(driveTrain, controller);
     autoBackUp = new c_autoBackUp(driveTrain);
-    runLauncher = new c_startLauncher(launch);
+    runLauncher = new c_runLauncher(launch);
     reverseLauncher = new c_reverseLauncher(launch);
     autoShootThenBackUp = new c_autoShootThenBackUp(launch, driveTrain);
 

@@ -8,12 +8,12 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.Launcher;
 
-public class c_startLauncher extends CommandBase {
-  
+public class c_runLauncher extends CommandBase {
+
   private final Launcher launch;
- 
+
   /** Creates a new c_startLauncher. */
-  public c_startLauncher(Launcher lch) {
+  public c_runLauncher(Launcher lch) {
     launch = lch;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(launch);
@@ -21,7 +21,8 @@ public class c_startLauncher extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
