@@ -30,6 +30,9 @@ public final class Constants {
     public static final int rightTopCanID = 5;// 5;2
     public static final int rightBottomCanID = 6;// 6;
 
+    // drive train PID
+    public static final double dtkP = 0;
+
     // controller
     // shooting axis
     public static final int rTriggerAxis = 3;
@@ -60,4 +63,5 @@ public final class Constants {
     // smacna sensors
     public static final int smacnaTopDIO = 3;
     public static final int smacnaBottomDIO = 6;
+
 }

@@ -28,7 +28,7 @@ public class c_autoBackUp extends CommandBase {
   @Override
   public void execute() {
 
-    drive.driveStraight(.5);
+    drive.driveStraightWithGyro(.5);
   }
 
   // Called once the command ends or is interrupted.

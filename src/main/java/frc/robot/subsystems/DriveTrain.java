@@ -100,8 +100,18 @@ public class DriveTrain extends SubsystemBase {
     System.out.println("Gyro Pitch is " + gyro2.getPitch());
   }
 
+  public double getGyroAngle() {
+    return gyro2.getYaw();
+  }
+
   public void driveStraight(Double speed) {
     drive.tankDrive(speed, speed);
+  }
+
+  public void driveStraightWithGyro(double power) {
+    double error = 0 - getGyroAngle();
+    double turnPower = Constants.dtkP * error;
+    drive.arcadeDrive(turnPower, power, false);
   }
 
   public void stopMotors() {
