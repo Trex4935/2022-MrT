@@ -52,6 +52,16 @@ public class Launcher extends SubsystemBase {
     motorBottom.set(speed);
   }
 
+  public void runLauncherWithLimits(double speed, boolean stop) {
+    // launcherMotorGroup.set(speed);
+    if (!stop) {
+      motorTop.set(speed);
+      motorBottom.set(speed);
+    } else {
+      stopLauncher();
+    }
+  }
+
   public void stopLauncher() {
     motorTop.stopMotor();
     motorBottom.stopMotor();
