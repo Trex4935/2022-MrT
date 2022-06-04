@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.subsystems.Launcher;
 
 public class c_runLauncherUntilSmakna extends CommandBase {
@@ -25,7 +26,7 @@ public class c_runLauncherUntilSmakna extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    launcher.singulateball();
+    launcher.runLauncher(Constants.intakeSpeed);
   }
 
   // Called once the command ends or is interrupted.
@@ -37,6 +38,6 @@ public class c_runLauncherUntilSmakna extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return launcher.getTopSmacna() || launcher.getBottomSmacna();
+    return launcher.getTopSmacna();
   }
 }
