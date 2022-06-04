@@ -38,8 +38,8 @@ public class Launcher extends SubsystemBase {
     motorBottom.setInverted(false);
 
     // launcherMotorGroup = new MotorControllerGroup(motorTop, motorBottom);
-    smacnaTop = new DigitalInput(Constants.smacnaTopDIO);
-    smacnaBottom = new DigitalInput(Constants.smacnaBottomDIO);
+    smacnaTop = new FlippedDIO(Constants.smacnaTopDIO);
+    smacnaBottom = new FlippedDIO(Constants.smacnaBottomDIO);
     ballcount = 0;
     i = 0;
     ballDetect = false;
