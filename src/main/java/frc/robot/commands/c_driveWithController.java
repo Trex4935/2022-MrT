@@ -9,20 +9,19 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.Constants;
 
-
 public class c_driveWithController extends CommandBase {
 
   private final DriveTrain drive;
   private final XboxController controller;
+
   /** Creates a new c_driveWithControler. */
   public c_driveWithController(DriveTrain dt, XboxController xbc) {
     // Use addRequirements() here to declare subsystem dependencies.
     drive = dt;
-    controller  = xbc;
-    
+    controller = xbc;
+
     addRequirements(drive);
   }
-  
 
   // Called when the command is initially scheduled.
   @Override
@@ -33,7 +32,7 @@ public class c_driveWithController extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    
+
     drive.driveWithController(controller);
 
   }
