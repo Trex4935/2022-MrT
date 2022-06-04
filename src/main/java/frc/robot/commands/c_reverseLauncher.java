@@ -9,9 +9,9 @@ import frc.robot.Constants;
 import frc.robot.subsystems.Launcher;
 
 public class c_reverseLauncher extends CommandBase {
-  
+
   private final Launcher launch;
- 
+
   /** Creates a new c_startLauncher. */
   public c_reverseLauncher(Launcher lch) {
     launch = lch;
@@ -21,12 +21,13 @@ public class c_reverseLauncher extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    launch.runLauncher(-Constants.launcherSpeed);
+    launch.runLauncher(-Constants.intakeSpeed);
   }
 
   // Called once the command ends or is interrupted.
