@@ -19,6 +19,7 @@ import frc.robot.commands.c_runLauncher;
 import frc.robot.commands.c_runLauncherUntilSmakna;
 import frc.robot.subsystems.Launcher;
 import frc.robot.commands.c_reverseLauncher;
+import frc.robot.extensions.leftTriggerBool;
 import frc.robot.extensions.rightTriggerBool;
 
 /**
@@ -45,6 +46,7 @@ public class RobotContainer {
   // triggers and buttons
   private JoystickButton button_a, button_b, button_x, button_y, bumper_r, bumper_l;
   private rightTriggerBool rTrigger;
+  private leftTriggerBool lTrigger;
 
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
@@ -90,6 +92,9 @@ public class RobotContainer {
 
     rTrigger = new rightTriggerBool();
     rTrigger.whileActiveOnce(runLauncher);
+
+    lTrigger = new leftTriggerBool();
+    lTrigger.whileActiveOnce(reverseLauncher);
 
   }
 
