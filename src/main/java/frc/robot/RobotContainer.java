@@ -29,7 +29,7 @@ import frc.robot.commands.c_reverseLauncher;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  private final XboxController controller;
+  public static XboxController controller;
   // The robot's subsystems and commands are defined here...
   private final DriveTrain driveTrain;
   private final c_driveWithController driveWithController;
