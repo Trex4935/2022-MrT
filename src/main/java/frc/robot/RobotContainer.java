@@ -16,8 +16,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants;
 import frc.robot.commands.c_runLauncher;
+import frc.robot.commands.c_runLauncherUntilSmakna;
 import frc.robot.subsystems.Launcher;
 import frc.robot.commands.c_reverseLauncher;
+import frc.robot.extensions.rightTriggerBool;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -38,8 +40,11 @@ public class RobotContainer {
   private final Launcher launch;
   private final c_autoBackUp autoBackUp;
   private final c_autoShootThenBackUp autoShootThenBackUp;
+  private final c_runLauncherUntilSmakna runLauncherUntilSmakna;
 
+  // triggers and buttons
   private JoystickButton button_a, button_b, button_x, button_y, bumper_r, bumper_l;
+  private rightTriggerBool rTrigger;
 
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
@@ -60,6 +65,7 @@ public class RobotContainer {
     runLauncher = new c_runLauncher(launch);
     reverseLauncher = new c_reverseLauncher(launch);
     autoShootThenBackUp = new c_autoShootThenBackUp(launch, driveTrain);
+    runLauncherUntilSmakna = new c_runLauncherUntilSmakna(launch);
 
     driveTrain.setDefaultCommand(driveWithController);
 
@@ -77,10 +83,13 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     bumper_r = new JoystickButton(controller, XboxController.Button.kRightBumper.value);
-    bumper_r.whenHeld(runLauncher);
+    bumper_r.whenHeld(runLauncherUntilSmakna);
 
     bumper_l = new JoystickButton(controller, XboxController.Button.kLeftBumper.value);
     bumper_l.whenHeld(reverseLauncher);
+
+    rTrigger = new rightTriggerBool();
+    rTrigger.whileActiveOnce(runLauncher);
 
   }
 
