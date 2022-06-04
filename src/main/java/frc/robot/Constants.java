@@ -31,6 +31,10 @@ public final class Constants {
     public static final int rightBottomCanID = 6;// 6;
 
     // controller
+    // shooting axis
+    public static final int rTriggerAxis = 3;
+    public static final int lTriggerAxis = 2;
+    // drive axis
     public static final int leftAxis = 1;
     public static final int rightAxis = 5;
 
@@ -49,7 +53,8 @@ public final class Constants {
     // launcher motors
     public static final int motorTop = 3;// 3;Left
     public static final int motorBottom = 4;// 4 Right
-    public static final double launcherSpeed = 0.5;// 0.725;
+    public static final double launcherSpeed = 0.7;// 0.725;
+    public static final double intakeSpeed = 0.3;
     // gyro
     public static final int gyroID = 2;
     // smacna sensors
