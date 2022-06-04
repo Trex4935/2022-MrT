@@ -31,7 +31,7 @@ public final class Constants {
     public static final int rightBottomCanID = 6;// 6;
 
     // drive train PID
-    public static final double dtkP = 0;
+    public static final double dtkP = (1.0 / 360.0) * 15;
 
     // controller
     // shooting axis
@@ -56,8 +56,8 @@ public final class Constants {
     // launcher motors
     public static final int motorTop = 3;// 3;Left
     public static final int motorBottom = 4;// 4 Right
-    public static final double launcherSpeed = 0.7;// 0.725;
-    public static final double intakeSpeed = 0.3;
+    public static final double launcherSpeed = 0.9;// 0.725;
+    public static final double intakeSpeed = 0.25;
     // gyro
     public static final int gyroID = 2;
     // smacna sensors

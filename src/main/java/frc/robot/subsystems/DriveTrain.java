@@ -92,8 +92,8 @@ public class DriveTrain extends SubsystemBase {
     // System.out.println("Gyro Yaw is " + YPR[0]);
     // System.out.println("Gyro Yaw is " + YPR[1]);
     // System.out.println("Gyro Yaw is " + YPR[2]);
-    System.out.println("Gyro Yaw is " + gyro.getYaw());
-    System.out.println("Gyro Yaw is " + gyro.getState());
+    // System.out.println("Gyro Yaw is " + gyro.getYaw());
+    // System.out.println("Gyro Yaw is " + gyro.getState());
     System.out.println("Gyro Angle is " + gyro2.getAngle());
     System.out.println("Gyro Yaw is " + gyro2.getYaw());
     System.out.println("Gyro Roll is " + gyro2.getRoll());
@@ -111,7 +111,8 @@ public class DriveTrain extends SubsystemBase {
   public void driveStraightWithGyro(double power) {
     double error = 0 - getGyroAngle();
     double turnPower = Constants.dtkP * error;
-    drive.arcadeDrive(turnPower, power, false);
+    System.out.println("error" + turnPower);
+    drive.arcadeDrive(power, turnPower, false);
   }
 
   public void stopMotors() {
