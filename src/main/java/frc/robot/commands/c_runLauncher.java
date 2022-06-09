@@ -37,6 +37,7 @@ public class c_runLauncher extends CommandBase {
   public void end(boolean interrupted) {
     launch.stopLauncher();
     SmartDashboard.putString("LED_Control", Constants.ledUnBlink);
+    Constants.ballcount = 0;
   }
 
   // Returns true when the command should end.

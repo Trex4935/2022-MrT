@@ -34,6 +34,7 @@ public class c_reverseLauncher extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     launch.stopLauncher();
+    Constants.ballcount = 0;
   }
 
   // Returns true when the command should end.
