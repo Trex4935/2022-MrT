@@ -11,11 +11,13 @@ import frc.robot.subsystems.Launcher;
 public class c_runLauncherUntilSmakna extends CommandBase {
   /** Creates a new c_runLauncherUntilSmakna. */
   public Launcher launcher;
+  private boolean previousSmakna;
 
   public c_runLauncherUntilSmakna(Launcher launch) {
     launcher = launch;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(launcher);
+    previousSmakna = launcher.getBottomSmacna();
   }
 
   // Called when the command is initially scheduled.
@@ -27,6 +29,23 @@ public class c_runLauncherUntilSmakna extends CommandBase {
   @Override
   public void execute() {
     launcher.runLauncher(Constants.intakeSpeed);
+
+    // If the bottom smacna doesn't equal the current smakna value
+    if (launcher.getBottomSmacna() == previousSmakna) {
+    }
+
+    // Where the two don't match
+    else {
+
+      // If it has changed to true then we need to increment ball count
+      if (launcher.getBottomSmacna()) {
+        Constants.ballcount = Constants.ballcount++;
+      }
+
+      // Update previoussmakna with the current value of the sensor
+      previousSmakna = launcher.getBottomSmacna();
+    }
+
   }
 
   // Called once the command ends or is interrupted.

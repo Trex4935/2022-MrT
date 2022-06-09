@@ -63,7 +63,9 @@ public final class Constants {
     // smacna sensors
     public static final int smacnaTopDIO = 3;
     public static final int smacnaBottomDIO = 6;
-   // LED Control Objects
-   public static final String ledBlink = "Blink";
-   public static final String ledUnBlink = "UnBlink";  
+    public static int ballcount = 0;
+
+    // LED Control Objects
+    public static final String ledBlink = "Blink";
+    public static final String ledUnBlink = "UnBlink";
 }
