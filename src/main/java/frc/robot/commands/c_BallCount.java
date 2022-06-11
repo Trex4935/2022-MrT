@@ -7,11 +7,16 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import frc.robot.subsystems.LED;
 
 public class c_BallCount extends CommandBase {
   /** Creates a new c_BallCount. */
-  public c_BallCount() {
+  private final LED myled;
+
+  public c_BallCount(LED led) {
+    myled = led;
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(myled);
   }
 
   // Called when the command is initially scheduled.

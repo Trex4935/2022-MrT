@@ -78,7 +78,7 @@ public class RobotContainer {
     runLauncherUntilSmakna = new c_runLauncherUntilSmakna(launch);
     reverseLauncherUntilSmakna = new c_reverseLauncherUntilSmakna(launch);
     controlLeds = new c_controlLeds(launch);
-    ballCount = new c_BallCount();
+    ballCount = new c_BallCount(LED);
 
     driveTrain.setDefaultCommand(driveWithController);
     LED.setDefaultCommand(ballCount);
