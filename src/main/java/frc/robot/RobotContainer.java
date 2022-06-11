@@ -79,7 +79,7 @@ public class RobotContainer {
     controlLeds = new c_controlLeds(launch);
 
     driveTrain.setDefaultCommand(driveWithController);
-    launch.setDefaultCommand(controlLeds);
+    // launch.setDefaultCommand(controlLeds);
 
     // Configure the button bindings
     configureButtonBindings();
@@ -105,6 +105,9 @@ public class RobotContainer {
 
     lTrigger = new leftTriggerBool();
     lTrigger.whileActiveOnce(reverseLauncher);
+
+    button_a = new JoystickButton(controller, XboxController.Button.kA.value);
+    button_a.toggleWhenPressed(controlLeds);
 
   }
 

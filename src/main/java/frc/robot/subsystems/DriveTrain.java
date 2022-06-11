@@ -85,7 +85,8 @@ public class DriveTrain extends SubsystemBase {
         (((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier
             * Constants.motorSpeedMultiplierLeft),
         (((controller.getRawAxis(Constants.rightAxis)) * rightInvert) * motorSpeedMultiplier
-            * Constants.motorSpeedMultiplierRight));
+            * Constants.motorSpeedMultiplierRight),
+        true);
     System.out.println((((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier));
 
     // gyro.getYawPitchRoll(YPR);
