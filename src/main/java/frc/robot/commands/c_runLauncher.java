@@ -29,14 +29,14 @@ public class c_runLauncher extends CommandBase {
   @Override
   public void execute() {
     launch.runLauncher(Constants.launcherSpeed);
-    SmartDashboard.putString("LED_Control", Constants.ledBlink);
+    // SmartDashboard.putString("LED_Control", Constants.ledBlink);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     launch.stopLauncher();
-    SmartDashboard.putString("LED_Control", Constants.ledUnBlink);
+    // SmartDashboard.putString("LED_Control", Constants.ledUnBlink);
     Constants.ballcount = 0;
   }
 
