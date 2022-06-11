@@ -46,7 +46,6 @@ public class c_BallCount extends CommandBase {
         }
       default:
         SmartDashboard.putString("LED_Control", Constants.LED_OneBall);
-
     }
   }
 

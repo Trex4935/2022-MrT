@@ -71,16 +71,16 @@ public class DriveTrain extends SubsystemBase {
 
     // arcade drive
     drive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
+    drive.setMaxOutput(0.5);
 
   }
 
   public void driveWithController(XboxController controller) {
     drive.tankDrive(
-        (((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier
+        (((controller.getRawAxis(Constants.leftAxis)) * leftInvert)
             * Constants.motorSpeedMultiplierLeft),
-        (((controller.getRawAxis(Constants.rightAxis)) * rightInvert) * motorSpeedMultiplier
-            * Constants.motorSpeedMultiplierRight),
-        true);
+        (((controller.getRawAxis(Constants.rightAxis)) * rightInvert)
+            * Constants.motorSpeedMultiplierRight));
     // System.out.println((((controller.getRawAxis(Constants.leftAxis)) *
     // leftInvert) * motorSpeedMultiplier));
 
