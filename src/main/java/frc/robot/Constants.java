@@ -65,4 +65,7 @@ public final class Constants {
     public static final String ledUnBlink = "UnBlink";
     public static final String ledRed = "Red";
     public static final String ledBlue = "Blue";
+    public static final String LED_Default = "default";
+    public static final String LED_OneBall = "one";
+    public static final String LED_TwoBall = "two";
 }

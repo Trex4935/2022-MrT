@@ -6,12 +6,14 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.c_BallCount;
 import frc.robot.commands.c_autoBackUp;
 import frc.robot.commands.c_autoShootThenBackUp;
 import frc.robot.commands.c_autoShootThenBackUpAndPickUp;
 import frc.robot.commands.c_controlLeds;
 import frc.robot.commands.c_driveWithController;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.LED;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants;
@@ -36,10 +38,12 @@ public class RobotContainer {
   public static XboxController controller;
   // The robot's subsystems and commands are defined here...
   private final DriveTrain driveTrain;
+  private final LED LED;
   private final c_driveWithController driveWithController;
   private final c_runLauncher runLauncher;
   private final c_reverseLauncher reverseLauncher;
   private final Launcher launch;
+  private final c_BallCount ballCount;
   private final c_autoBackUp autoBackUp;
   private final c_autoShootThenBackUp autoShootThenBackUp;
   private final c_runLauncherUntilSmakna runLauncherUntilSmakna;
@@ -52,7 +56,7 @@ public class RobotContainer {
   private rightTriggerBool rTrigger;
   private leftTriggerBool lTrigger;
 
-   /**
+  /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
@@ -62,6 +66,8 @@ public class RobotContainer {
     // subsystems
     driveTrain = new DriveTrain();
     launch = new Launcher();
+    LED = new LED();
+
     // commands
     driveWithController = new c_driveWithController(driveTrain, controller);
     autoBackUp = new c_autoBackUp(driveTrain);
@@ -72,9 +78,11 @@ public class RobotContainer {
     runLauncherUntilSmakna = new c_runLauncherUntilSmakna(launch);
     reverseLauncherUntilSmakna = new c_reverseLauncherUntilSmakna(launch);
     controlLeds = new c_controlLeds(launch);
+    ballCount = new c_BallCount();
 
     driveTrain.setDefaultCommand(driveWithController);
-    launch.setDefaultCommand(controlLeds);
+    LED.setDefaultCommand(ballCount);
+    // launch.setDefaultCommand(controlLeds);
 
     // Configure the button bindings
     configureButtonBindings();
