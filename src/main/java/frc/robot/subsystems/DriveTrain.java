@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -75,22 +76,25 @@ public class DriveTrain extends SubsystemBase {
 
   }
 
+  // Change gears from high to low and back
+  public void changeGear(boolean lowGear){
+    
+    if (lowGear){
+      SmartDashboard.putBoolean("LowGear", true);
+      drive.setMaxOutput(Constants.lowGear);
+    }
+    else {
+      SmartDashboard.putBoolean("LowGear", false);
+      drive.setMaxOutput(Constants.highGear);
+    }
+  }
+
   public void driveWithController(XboxController controller) {
     drive.tankDrive(
         (((controller.getRawAxis(Constants.leftAxis)) * leftInvert)
             * Constants.motorSpeedMultiplierLeft),
         (((controller.getRawAxis(Constants.rightAxis)) * rightInvert)
             * Constants.motorSpeedMultiplierRight));
-
-    if (Constants.gearChange) {
-      if (Constants.gear == "low") {
-        drive.setMaxOutput(Constants.lowGear);
-        Constants.gearChange = false;
-      } else {
-        drive.setMaxOutput(Constants.highGear);
-        Constants.gearChange = false;
-      }
-    }
     // System.out.println((((controller.getRawAxis(Constants.leftAxis)) *
     // leftInvert) * motorSpeedMultiplier));
 

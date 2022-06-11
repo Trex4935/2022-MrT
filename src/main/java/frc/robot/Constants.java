@@ -48,8 +48,7 @@ public final class Constants {
     public static final double motorSpeedMultiplierLeft = 1;// 0.8;
     public static final double motorSpeedMultiplierRight = 1; // 0.9;
 
-    public static String gear = "high";
-    public static boolean gearChange = false;
+    public static boolean inLowGear = false;
     public static final double highGear = 0.9;
     public static final double lowGear = 0.5;
 

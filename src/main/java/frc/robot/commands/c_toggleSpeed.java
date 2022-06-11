@@ -27,17 +27,22 @@ public class c_toggleSpeed extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (Constants.gear == "high") {
-      Constants.gear = "low";
-    } else {
-      Constants.gear = "high";
+
+    // if in low got to high and vice versa
+    if (Constants.inLowGear){
+      driveTrain.changeGear(false);
+      Constants.inLowGear = false;
     }
+    else {
+      driveTrain.changeGear(true);
+      Constants.inLowGear = true;
+    }
+
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Constants.gearChange = true;
 
   }
 
