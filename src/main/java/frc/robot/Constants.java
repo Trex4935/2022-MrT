@@ -47,7 +47,11 @@ public final class Constants {
     public static final double motorSpeedMultiplier = 1;
     public static final double motorSpeedMultiplierLeft = 1;// 0.8;
     public static final double motorSpeedMultiplierRight = 1; // 0.9;
-    public static double maxSpeed = 0.9;
+
+    public static String gear = "high";
+    public static boolean gearChange = false;
+    public static final double highGear = 0.9;
+    public static final double lowGear = 0.5;
 
     // launcher motors
     public static final int motorTop = 3;// 3;Left
@@ -70,4 +74,5 @@ public final class Constants {
     public static final String LED_OneBall = "one";
     public static final String LED_TwoBall = "two";
     public static final String LED_Error = "error";
+
 }

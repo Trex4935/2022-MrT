@@ -112,10 +112,8 @@ public class RobotContainer {
     lTrigger.whileActiveOnce(reverseLauncher);
 
     button_a = new JoystickButton(controller, XboxController.Button.kA.value);
-    button_a.toggleWhenPressed(controlLeds);
+    button_a.whenPressed(toggleSpeed);
 
-    button_x = new JoystickButton(controller, XboxController.Button.kX.value);
-    button_x.toggleWhenPressed(toggleSpeed);
   }
 
   /**

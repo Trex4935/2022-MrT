@@ -71,7 +71,7 @@ public class DriveTrain extends SubsystemBase {
 
     // arcade drive
     drive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
-    drive.setMaxOutput(Constants.maxSpeed);
+    drive.setMaxOutput(Constants.highGear);
 
   }
 
@@ -81,6 +81,16 @@ public class DriveTrain extends SubsystemBase {
             * Constants.motorSpeedMultiplierLeft),
         (((controller.getRawAxis(Constants.rightAxis)) * rightInvert)
             * Constants.motorSpeedMultiplierRight));
+
+    if (Constants.gearChange) {
+      if (Constants.gear == "low") {
+        drive.setMaxOutput(Constants.lowGear);
+        Constants.gearChange = false;
+      } else {
+        drive.setMaxOutput(Constants.highGear);
+        Constants.gearChange = false;
+      }
+    }
     // System.out.println((((controller.getRawAxis(Constants.leftAxis)) *
     // leftInvert) * motorSpeedMultiplier));
 

@@ -16,25 +16,29 @@ public class c_toggleSpeed extends CommandBase {
   public c_toggleSpeed(DriveTrain drive) {
     // Use addRequirements() here to declare subsystem dependencies.
     driveTrain = drive;
-    startSpeed = Constants.maxSpeed;
     addRequirements(driveTrain);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    Constants.maxSpeed = 0.5;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    if (Constants.gear == "high") {
+      Constants.gear = "low";
+    } else {
+      Constants.gear = "high";
+    }
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Constants.maxSpeed = startSpeed;
+    Constants.gearChange = true;
+
   }
 
   // Returns true when the command should end.
