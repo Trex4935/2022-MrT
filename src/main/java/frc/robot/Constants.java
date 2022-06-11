@@ -61,11 +61,13 @@ public final class Constants {
     // gyro
     public static final int gyroID = 2;
     // smacna sensors
-    public static final int smacnaTopDIO = 3;
-    public static final int smacnaBottomDIO = 6;
+    public static final int smacnaTopDIO = 1;
+    public static final int smacnaBottomDIO = 0;
     public static int ballcount = 0;
 
     // LED Control Objects
     public static final String ledBlink = "Blink";
     public static final String ledUnBlink = "UnBlink";
+    public static final String ledRed = "Red";
+    public static final String ledBlue = "Blue";
 }
