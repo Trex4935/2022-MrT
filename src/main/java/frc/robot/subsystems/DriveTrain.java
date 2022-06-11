@@ -80,7 +80,8 @@ public class DriveTrain extends SubsystemBase {
             * Constants.motorSpeedMultiplierLeft),
         (((controller.getRawAxis(Constants.rightAxis)) * rightInvert) * motorSpeedMultiplier
             * Constants.motorSpeedMultiplierRight));
-    System.out.println((((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier));
+    // System.out.println((((controller.getRawAxis(Constants.leftAxis)) *
+    // leftInvert) * motorSpeedMultiplier));
 
     // gyro.getYawPitchRoll(YPR);
     // System.out.println("Gyro Yaw is " + YPR[0]);
@@ -88,10 +89,10 @@ public class DriveTrain extends SubsystemBase {
     // System.out.println("Gyro Yaw is " + YPR[2]);
     // System.out.println("Gyro Yaw is " + gyro.getYaw());
     // System.out.println("Gyro Yaw is " + gyro.getState());
-    System.out.println("Gyro Angle is " + gyro2.getAngle());
-    System.out.println("Gyro Yaw is " + gyro2.getYaw());
-    System.out.println("Gyro Roll is " + gyro2.getRoll());
-    System.out.println("Gyro Pitch is " + gyro2.getPitch());
+    // System.out.println("Gyro Angle is " + gyro2.getAngle());
+    // System.out.println("Gyro Yaw is " + gyro2.getYaw());
+    // System.out.println("Gyro Roll is " + gyro2.getRoll());
+    // System.out.println("Gyro Pitch is " + gyro2.getPitch());
   }
 
   public double getGyroAngle() {
@@ -105,7 +106,7 @@ public class DriveTrain extends SubsystemBase {
   public void driveStraightWithGyro(double power) {
     double error = 0 - getGyroAngle();
     double turnPower = Constants.dtkP * error;
-    System.out.println("error" + turnPower);
+    // System.out.println("error" + turnPower);
     drive.arcadeDrive(power, turnPower, false);
   }
 
