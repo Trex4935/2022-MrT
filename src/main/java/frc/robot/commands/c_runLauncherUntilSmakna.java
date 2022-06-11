@@ -17,12 +17,13 @@ public class c_runLauncherUntilSmakna extends CommandBase {
     launcher = launch;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(launcher);
-    previousSmakna = launcher.getBottomSmacna();
+
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    previousSmakna = launcher.getBottomSmacna();
   }
 
   // Called every time the scheduler runs while the command is scheduled.

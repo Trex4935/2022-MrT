@@ -6,7 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.c_BallCount;
+import frc.robot.commands.c_UpdateLED;
 import frc.robot.commands.c_autoBackUp;
 import frc.robot.commands.c_autoShootThenBackUp;
 import frc.robot.commands.c_autoShootThenBackUpAndPickUp;
@@ -44,7 +44,7 @@ public class RobotContainer {
   private final c_runLauncher runLauncher;
   private final c_reverseLauncher reverseLauncher;
   private final Launcher launch;
-  private final c_BallCount ballCount;
+  private final c_UpdateLED updateLED;
   private final c_autoBackUp autoBackUp;
   private final c_autoShootThenBackUp autoShootThenBackUp;
   private final c_runLauncherUntilSmakna runLauncherUntilSmakna;
@@ -80,12 +80,11 @@ public class RobotContainer {
     runLauncherUntilSmakna = new c_runLauncherUntilSmakna(launch);
     reverseLauncherUntilSmakna = new c_reverseLauncherUntilSmakna(launch);
     controlLeds = new c_controlLeds(launch);
-    ballCount = new c_BallCount(LED);
     toggleSpeed = new c_toggleSpeed(driveTrain);
+    updateLED = new c_UpdateLED(LED);
 
     driveTrain.setDefaultCommand(driveWithController);
-    LED.setDefaultCommand(ballCount);
-    // launch.setDefaultCommand(controlLeds);
+    LED.setDefaultCommand(updateLED);
 
     // Configure the button bindings
     configureButtonBindings();

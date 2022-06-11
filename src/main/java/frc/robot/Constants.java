@@ -69,4 +69,5 @@ public final class Constants {
     public static final String LED_Default = "default";
     public static final String LED_OneBall = "one";
     public static final String LED_TwoBall = "two";
+    public static final String LED_Error = "error";
 }
