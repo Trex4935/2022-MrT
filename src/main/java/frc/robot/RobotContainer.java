@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.c_autoBackUp;
 import frc.robot.commands.c_autoShootThenBackUp;
+import frc.robot.commands.c_autoShootThenBackUpAndPickUp;
+import frc.robot.commands.c_controlLeds;
 import frc.robot.commands.c_driveWithController;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -19,6 +21,7 @@ import frc.robot.commands.c_runLauncher;
 import frc.robot.commands.c_runLauncherUntilSmakna;
 import frc.robot.subsystems.Launcher;
 import frc.robot.commands.c_reverseLauncher;
+import frc.robot.commands.c_reverseLauncherUntilSmakna;
 import frc.robot.extensions.leftTriggerBool;
 import frc.robot.extensions.rightTriggerBool;
 
@@ -42,6 +45,9 @@ public class RobotContainer {
   private final c_autoBackUp autoBackUp;
   private final c_autoShootThenBackUp autoShootThenBackUp;
   private final c_runLauncherUntilSmakna runLauncherUntilSmakna;
+  private final c_controlLeds controlLeds;
+  private final c_autoShootThenBackUpAndPickUp autoShootThenBackUpAndPickUp;
+  private final c_reverseLauncherUntilSmakna reverseLauncherUntilSmakna;
 
   // triggers and buttons
   private JoystickButton button_a, button_b, button_x, button_y, bumper_r, bumper_l;
@@ -67,9 +73,13 @@ public class RobotContainer {
     runLauncher = new c_runLauncher(launch);
     reverseLauncher = new c_reverseLauncher(launch);
     autoShootThenBackUp = new c_autoShootThenBackUp(launch, driveTrain);
+    autoShootThenBackUpAndPickUp = new c_autoShootThenBackUpAndPickUp(launch, driveTrain);
     runLauncherUntilSmakna = new c_runLauncherUntilSmakna(launch);
+    reverseLauncherUntilSmakna = new c_reverseLauncherUntilSmakna(launch);
+    controlLeds = new c_controlLeds(launch);
 
     driveTrain.setDefaultCommand(driveWithController);
+    launch.setDefaultCommand(controlLeds);
 
     // Configure the button bindings
     configureButtonBindings();
@@ -88,7 +98,7 @@ public class RobotContainer {
     bumper_r.whenHeld(runLauncherUntilSmakna);
 
     bumper_l = new JoystickButton(controller, XboxController.Button.kLeftBumper.value);
-    bumper_l.whenHeld(reverseLauncher);
+    bumper_l.whenHeld(reverseLauncherUntilSmakna);
 
     rTrigger = new rightTriggerBool();
     rTrigger.whileActiveOnce(runLauncher);
@@ -105,6 +115,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return autoShootThenBackUp;
+    return autoShootThenBackUpAndPickUp;
   }
 }

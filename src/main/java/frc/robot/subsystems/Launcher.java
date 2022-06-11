@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.extensions.FlippedDIO;
@@ -107,5 +108,15 @@ public class Launcher extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+  }
+
+  public void changeColor() {
+    if (Constants.ballcount == 1) {
+      SmartDashboard.putString("LED_Control", Constants.ledRed);
+    } else if (Constants.ballcount == 2) {
+      SmartDashboard.putString("LED_Control", Constants.ledBlue);
+    } else {
+      SmartDashboard.putString("LED_Control", Constants.ledBlink);
+    }
   }
 }
