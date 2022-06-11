@@ -39,7 +39,7 @@ public class c_runLauncherUntilSmakna extends CommandBase {
 
       // If it has changed to true then we need to increment ball count
       if (launcher.getBottomSmacna()) {
-        Constants.ballcount = Constants.ballcount++;
+        Constants.ballcount = Constants.ballcount + 1;
       }
 
       // Update previoussmakna with the current value of the sensor

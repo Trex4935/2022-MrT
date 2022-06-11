@@ -27,6 +27,8 @@ public class c_BallCount extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    SmartDashboard.putNumber("Count", Constants.ballcount);
+
     switch (Constants.ballcount) {
       case 1:
         if (SmartDashboard.getString("LED_Control", Constants.LED_Default) == "one") {
@@ -45,7 +47,7 @@ public class c_BallCount extends CommandBase {
           SmartDashboard.putString("LED_Control", Constants.LED_Default);
         }
       default:
-        SmartDashboard.putString("LED_Control", Constants.LED_OneBall);
+        SmartDashboard.putString("LED_Control", Constants.LED_Default);
     }
   }
 
