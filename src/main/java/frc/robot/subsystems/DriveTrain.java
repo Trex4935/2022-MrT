@@ -5,14 +5,11 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix.sensors.PigeonIMU;
-import com.ctre.phoenix.sensors.WPI_PigeonIMU;
 import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -35,7 +32,6 @@ public class DriveTrain extends SubsystemBase {
   DifferentialDrive drive;
 
   // PigeonIMU gyro;
-  WPI_PigeonIMU gyro;
   double[] YPR;
   public static AHRS gyro2;
 
@@ -68,8 +64,6 @@ public class DriveTrain extends SubsystemBase {
 
     // gyro
     // gyro = new PigeonIMU(Constants.gyroID);
-    gyro = new WPI_PigeonIMU(Constants.gyroID);
-    gyro.reset();
     YPR = new double[3];
     gyro2 = new AHRS(SPI.Port.kMXP);
     gyro2.calibrate();
@@ -85,9 +79,10 @@ public class DriveTrain extends SubsystemBase {
         (((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier
             * Constants.motorSpeedMultiplierLeft),
         (((controller.getRawAxis(Constants.rightAxis)) * rightInvert) * motorSpeedMultiplier
-            * Constants.motorSpeedMultiplierRight),
-        true);
-    System.out.println((((controller.getRawAxis(Constants.leftAxis)) * leftInvert) * motorSpeedMultiplier));
+            * Constants.motorSpeedMultiplierRight));
+    // System.out.println((((controller.getRawAxis(Constants.leftAxis)) *
+    // leftInvert) * motorSpeedMultiplier));
+
 
     // gyro.getYawPitchRoll(YPR);
     // System.out.println("Gyro Yaw is " + YPR[0]);
@@ -95,10 +90,10 @@ public class DriveTrain extends SubsystemBase {
     // System.out.println("Gyro Yaw is " + YPR[2]);
     // System.out.println("Gyro Yaw is " + gyro.getYaw());
     // System.out.println("Gyro Yaw is " + gyro.getState());
-    System.out.println("Gyro Angle is " + gyro2.getAngle());
-    System.out.println("Gyro Yaw is " + gyro2.getYaw());
-    System.out.println("Gyro Roll is " + gyro2.getRoll());
-    System.out.println("Gyro Pitch is " + gyro2.getPitch());
+    // System.out.println("Gyro Angle is " + gyro2.getAngle());
+    // System.out.println("Gyro Yaw is " + gyro2.getYaw());
+    // System.out.println("Gyro Roll is " + gyro2.getRoll());
+    // System.out.println("Gyro Pitch is " + gyro2.getPitch());
   }
 
   public double getGyroAngle() {
@@ -112,7 +107,7 @@ public class DriveTrain extends SubsystemBase {
   public void driveStraightWithGyro(double power) {
     double error = 0 - getGyroAngle();
     double turnPower = Constants.dtkP * error;
-    System.out.println("error" + turnPower);
+    // System.out.println("error" + turnPower);
     drive.arcadeDrive(power, turnPower, false);
   }
 
