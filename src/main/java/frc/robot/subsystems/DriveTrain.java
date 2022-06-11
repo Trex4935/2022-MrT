@@ -5,7 +5,6 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix.sensors.WPI_PigeonIMU;
 import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.SPI;
@@ -33,7 +32,6 @@ public class DriveTrain extends SubsystemBase {
   DifferentialDrive drive;
 
   // PigeonIMU gyro;
-  WPI_PigeonIMU gyro;
   double[] YPR;
   public static AHRS gyro2;
 
@@ -66,8 +64,6 @@ public class DriveTrain extends SubsystemBase {
 
     // gyro
     // gyro = new PigeonIMU(Constants.gyroID);
-    gyro = new WPI_PigeonIMU(Constants.gyroID);
-    gyro.reset();
     YPR = new double[3];
     gyro2 = new AHRS(SPI.Port.kMXP);
     gyro2.calibrate();
