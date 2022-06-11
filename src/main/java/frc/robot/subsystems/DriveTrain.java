@@ -71,7 +71,7 @@ public class DriveTrain extends SubsystemBase {
 
     // arcade drive
     drive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
-    drive.setMaxOutput(0.5);
+    drive.setMaxOutput(Constants.maxSpeed);
 
   }
 

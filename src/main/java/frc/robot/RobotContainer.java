@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants;
 import frc.robot.commands.c_runLauncher;
 import frc.robot.commands.c_runLauncherUntilSmakna;
+import frc.robot.commands.c_toggleSpeed;
 import frc.robot.subsystems.Launcher;
 import frc.robot.commands.c_reverseLauncher;
 import frc.robot.commands.c_reverseLauncherUntilSmakna;
@@ -50,6 +51,7 @@ public class RobotContainer {
   private final c_controlLeds controlLeds;
   private final c_autoShootThenBackUpAndPickUp autoShootThenBackUpAndPickUp;
   private final c_reverseLauncherUntilSmakna reverseLauncherUntilSmakna;
+  private final c_toggleSpeed toggleSpeed;
 
   // triggers and buttons
   private JoystickButton button_a, button_b, button_x, button_y, bumper_r, bumper_l;
@@ -79,6 +81,7 @@ public class RobotContainer {
     reverseLauncherUntilSmakna = new c_reverseLauncherUntilSmakna(launch);
     controlLeds = new c_controlLeds(launch);
     ballCount = new c_BallCount(LED);
+    toggleSpeed = new c_toggleSpeed(driveTrain);
 
     driveTrain.setDefaultCommand(driveWithController);
     LED.setDefaultCommand(ballCount);
@@ -112,6 +115,8 @@ public class RobotContainer {
     button_a = new JoystickButton(controller, XboxController.Button.kA.value);
     button_a.toggleWhenPressed(controlLeds);
 
+    button_x = new JoystickButton(controller, XboxController.Button.kX.value);
+    button_x.toggleWhenPressed(toggleSpeed);
   }
 
   /**
