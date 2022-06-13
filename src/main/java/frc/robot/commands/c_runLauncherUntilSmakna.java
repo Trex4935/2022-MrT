@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.Launcher;
@@ -30,6 +31,7 @@ public class c_runLauncherUntilSmakna extends CommandBase {
   @Override
   public void execute() {
     launcher.runLauncher(Constants.intakeSpeed);
+    SmartDashboard.putString("LED_Control", Constants.ledBlink);
 
     // If the bottom smacna doesn't equal the current smakna value
     if (launcher.getBottomSmacna() == previousSmakna) {
@@ -53,6 +55,7 @@ public class c_runLauncherUntilSmakna extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     launcher.stopLauncher();
+    SmartDashboard.putString("LED_Control", Constants.LED_Default);
   }
 
   // Returns true when the command should end.

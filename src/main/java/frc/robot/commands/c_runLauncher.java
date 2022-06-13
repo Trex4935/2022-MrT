@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.Launcher;
@@ -28,6 +29,7 @@ public class c_runLauncher extends CommandBase {
   @Override
   public void execute() {
     launch.runLauncher(Constants.launcherSpeed);
+    SmartDashboard.putString("LED_Control", Constants.ledBlink);
   }
 
   // Called once the command ends or is interrupted.
@@ -35,6 +37,7 @@ public class c_runLauncher extends CommandBase {
   public void end(boolean interrupted) {
     launch.stopLauncher();
     Constants.ballcount = 0;
+    SmartDashboard.putString("LED_Control", Constants.LED_Default);
   }
 
   // Returns true when the command should end.

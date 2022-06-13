@@ -111,11 +111,11 @@ public class Launcher extends SubsystemBase {
 
   public void changeColor() {
     if (Constants.ballcount == 1) {
-      SmartDashboard.putString("LED_Control", Constants.ledRed);
+      SmartDashboard.putString("LED_Control", Constants.LED_OneBall);
     } else if (Constants.ballcount == 2) {
-      SmartDashboard.putString("LED_Control", Constants.ledBlue);
+      SmartDashboard.putString("LED_Control", Constants.LED_TwoBall);
     } else {
-      SmartDashboard.putString("LED_Control", Constants.ledBlink);
+      SmartDashboard.putString("LED_Control", Constants.LED_Default);
     }
   }
 }

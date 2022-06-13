@@ -35,10 +35,10 @@ public class c_UpdateLED extends CommandBase {
         SmartDashboard.putString("LED_Control", Constants.LED_TwoBall);
 
       case 0:
-        SmartDashboard.putString("LED_Control", Constants.LED_Default);
+        SmartDashboard.putString("LED_Control", Constants.LED_Error);
 
       default:
-        SmartDashboard.putString("LED_Control", Constants.LED_Error);
+        SmartDashboard.putString("LED_Control", Constants.LED_Default);
     }
   }
 
