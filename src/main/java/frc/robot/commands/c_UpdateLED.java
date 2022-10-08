@@ -38,7 +38,7 @@ public class c_UpdateLED extends CommandBase {
         SmartDashboard.putString("LED_Control", Constants.LED_Default);
 
       default:
-        SmartDashboard.putString("LED_Control", Constants.LED_Error);
+        SmartDashboard.putString("LED_Control", Constants.LED_Default);
     }
   }
 
