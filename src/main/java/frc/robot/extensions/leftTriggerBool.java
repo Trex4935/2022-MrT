@@ -10,7 +10,7 @@ public class leftTriggerBool extends Trigger {
         /*
          * checks if the left trigger axis is above 0.25 then return true or false
          */
-        if (RobotContainer.controller.getRawAxis(Constants.lTriggerAxis) >= 0.25) {
+        if (RobotContainer.o_controller.getRawAxis(Constants.lTriggerAxis) >= 0.25) {
             // trigger is pressed
             return true;
         } else {
