@@ -36,7 +36,8 @@ import frc.robot.extensions.rightTriggerBool;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  public static XboxController controller;
+  public static XboxController o_controller;
+  public static XboxController d_controller;
   // The robot's subsystems and commands are defined here...
   private final DriveTrain driveTrain;
   private final LED LED;
@@ -64,14 +65,15 @@ public class RobotContainer {
   public RobotContainer() {
 
     // controller
-    controller = new XboxController(Constants.xboxID);
+    o_controller = new XboxController(Constants.o_xboxID);
+    d_controller = new XboxController(Constants.d_xboxID);
     // subsystems
     driveTrain = new DriveTrain();
     launch = new Launcher();
     LED = new LED();
 
     // commands
-    driveWithController = new c_driveWithController(driveTrain, controller);
+    driveWithController = new c_driveWithController(driveTrain, d_controller);
     autoBackUp = new c_autoBackUp(driveTrain);
     runLauncher = new c_runLauncher(launch);
     reverseLauncher = new c_reverseLauncher(launch);
@@ -99,10 +101,10 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    bumper_r = new JoystickButton(controller, XboxController.Button.kRightBumper.value);
+    bumper_r = new JoystickButton(o_controller, XboxController.Button.kRightBumper.value);
     bumper_r.whenHeld(runLauncherUntilSmakna);
 
-    bumper_l = new JoystickButton(controller, XboxController.Button.kLeftBumper.value);
+    bumper_l = new JoystickButton(o_controller, XboxController.Button.kLeftBumper.value);
     bumper_l.whenHeld(reverseLauncherUntilSmakna);
 
     rTrigger = new rightTriggerBool();
@@ -111,7 +113,7 @@ public class RobotContainer {
     lTrigger = new leftTriggerBool();
     lTrigger.whileActiveOnce(reverseLauncher);
 
-    button_a = new JoystickButton(controller, XboxController.Button.kA.value);
+    button_a = new JoystickButton(o_controller, XboxController.Button.kA.value);
     button_a.whenPressed(toggleSpeed);
 
   }
