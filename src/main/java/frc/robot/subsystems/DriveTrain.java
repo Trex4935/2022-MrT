@@ -77,13 +77,12 @@ public class DriveTrain extends SubsystemBase {
   }
 
   // Change gears from high to low and back
-  public void changeGear(boolean lowGear){
-    
-    if (lowGear){
+  public void changeGear(boolean lowGear) {
+
+    if (lowGear) {
       SmartDashboard.putBoolean("LowGear", true);
       drive.setMaxOutput(Constants.lowGear);
-    }
-    else {
+    } else {
       SmartDashboard.putBoolean("LowGear", false);
       drive.setMaxOutput(Constants.highGear);
     }
