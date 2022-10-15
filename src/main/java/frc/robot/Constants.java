@@ -37,7 +37,8 @@ public final class Constants {
     public static final int rightAxis = 5;
 
     // xbox controller
-    public static final int xboxID = 0;
+    public static final int d_xboxID = 0;
+    public static final int o_xboxID = 1;
 
     // Invert drive train
 
